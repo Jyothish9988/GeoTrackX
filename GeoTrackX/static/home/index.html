@@ -6,8 +6,6 @@ Author URL: http://w3layouts.com
 <html lang="zxx">
 
 <head>
-
-    {%load static %}
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +15,7 @@ Author URL: http://w3layouts.com
   <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
     rel="stylesheet">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="{% static 'home/assets/css/style-starter.css' %}">
+  <link rel="stylesheet" href="assets/css/style-starter.css">
 </head>
 
 <body>
@@ -30,7 +28,7 @@ Author URL: http://w3layouts.com
         <h1><a class="navbar-brand" href="index.html">
             Dige<span class="sub-logo">b</span>iz</span>
           </a></h1>
-        <!-- if logo is image enable this
+        <!-- if logo is image enable this   
     <a class="navbar-brand" href="#index.html">
         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
     </a> -->
@@ -52,12 +50,9 @@ Author URL: http://w3layouts.com
             <li class="nav-item">
               <a class="nav-link" href="services.html">Services</a>
             </li>
-
+           
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
             <!--/search-right-->
             <li class="nav-item search-right ml-lg-3">
@@ -110,8 +105,8 @@ Author URL: http://w3layouts.com
           </ul>
           <!--/right-btn-->
           <div class="top-righthny-buttton">
-            <a class="btn btn-style btn-white mr-lg-5" href="{% url 'user_login' %}">
-              Login <span class="fa fa-long-arrow-right ml-3" aria-hidden="true"></span></a>
+            <a class="btn btn-style btn-white mr-lg-5" href="contact.html">
+              Get In Touch <span class="fa fa-long-arrow-right ml-3" aria-hidden="true"></span></a>
           </div>
           <!--/right-btn-->
         </div>
@@ -753,9 +748,9 @@ Author URL: http://w3layouts.com
   <!-- //copyright -->
   <!--//footer-->
   <!-- Template JavaScript -->
-  <script src="{% static 'home/assets/js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'home/assets/js/theme-change.js' %}"></script>
-  <script src="{% static 'home/assets/js/owl.carousel.js ' %} "></script><!-- owl carousel -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+  <script src="assets/js/owl.carousel.js"></script><!-- owl carousel -->
   <!-- script for tesimonials carousel slider -->
   <script>
     $(document).ready(function () {
@@ -780,8 +775,8 @@ Author URL: http://w3layouts.com
   </script>
   <!-- //script for tesimonials carousel slider -->
   <!-- stats number counter-->
-  <script src="{% static 'home/assets/js/jquery.waypoints.min.js'}"></script>
-  <script src="{% static 'home/assets/js/jquery.countup.js'%}"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.countup.js"></script>
   <script>
     $('.counter').countUp();
   </script>
@@ -824,7 +819,7 @@ Author URL: http://w3layouts.com
     });
   </script>
   <!--//MENU-JS-->
-  <script src="{% static 'home/assets/js/bootstrap.min.js'%}"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
 

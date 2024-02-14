@@ -1,13 +1,74 @@
-<html>
-    <form method="POST" autocomplete="off">
+<!DOCTYPE html>
+<html lang="en">
 
-        {% csrf_token %}
-        {{registerform.as_p}}
-        <input type="submit" value="Register"/>
-    </form>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Registration</title>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('your-background-image.jpg'); /* Add your background image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-card {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the transparency as needed */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-form input[type="submit"] {
+            background-color: #27ae60;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Registration Card Section -->
+    <div class="register-card">
+        <h2>Register</h2>
+        <form method="POST" autocomplete="off" class="register-form">
+            {% csrf_token %}
+            <!-- Your form fields here -->
+            {{ registerform.username.label_tag }}
+            {{ registerform.username }}
+            {{ registerform.email.label_tag }}
+            {{ registerform.email }}
+            {{ registerform.password1.label_tag }}
+            {{ registerform.password1 }}
+            {{ registerform.password2.label_tag }}
+            {{ registerform.password2 }}
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+</body>
+
 </html>
-
-
-
-
-
