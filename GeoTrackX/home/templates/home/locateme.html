@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/main_header.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User GPS Coordinates</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50; /* Dark background color */
+            color: #ecf0f1; /* Light text color */
+        }
+
+        #info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #34495e; /* Darker background color for the info box */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker box shadow */
+        }
+
+        #info h1 {
+            margin: 0 0 10px;
+            color: #e74c3c;
+        }
+
+        #coordinates {
+            margin-bottom: 20px;
+        }
+
+        #copyButton {
+            background-color: #3498db;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info">
+        <h1>Your GPS Coordinates</h1>
+        <p id="coordinates">Retrieving...</p>
+        <button id="copyButton" onclick="copyCoordinates()">Copy</button>
+    </div>
+
+    <script>
+        // Get user's coordinates using Geolocation API
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var userLat = position.coords.latitude;
+                var userLng = position.coords.longitude;
+
+                // Display user's coordinates
+                var formattedCoordinates = formatCoordinates(userLat, userLng);
+                document.getElementById('coordinates').innerText = formattedCoordinates;
+            }, function (error) {
+                console.error('Error getting user location:', error.message);
+                document.getElementById('coordinates').innerText = 'Unable to retrieve coordinates';
+            });
+        } else {
+            console.log("Your browser doesn't support geolocation feature!");
+            document.getElementById('coordinates').innerText = 'Geolocation not supported';
+        }
+
+        function formatCoordinates(lat, lng) {
+            var latDirection = lat >= 0 ? 'N' : 'S';
+            var lngDirection = lng >= 0 ? 'E' : 'W';
+
+            var latDMS = convertToDMS(Math.abs(lat));
+            var lngDMS = convertToDMS(Math.abs(lng));
+
+            return latDMS + ' ' + latDirection + ' ' + lngDMS + ' ' + lngDirection;
+        }
+
+        function convertToDMS(degrees) {
+            var deg = Math.floor(degrees);
+            var min = Math.floor((degrees - deg) * 60);
+            var sec = ((degrees - deg - min / 60) * 3600).toFixed(0);
+
+            return deg + '°' + min + '′' + sec + '″';
+        }
+
+        function copyCoordinates() {
+            var coordinatesText = document.getElementById('coordinates');
+            var textArea = document.createElement('textarea');
+            textArea.value = coordinatesText.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Coordinates copied to clipboard!');
+        }
+    </script>
+</body>
+{% endblock %}

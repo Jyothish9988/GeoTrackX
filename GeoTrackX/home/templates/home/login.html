@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends "home/sub_header.html" %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +21,12 @@
         }
 
         .login-card {
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the transparency as needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Darken the background */
             border-radius: 10px;
             padding: 20px;
             width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjust shadow color for contrast */
+            color: #fff; /* Set text color to white */
         }
 
         .login-form {
@@ -34,8 +37,10 @@
         .login-form input {
             margin-bottom: 10px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #777; /* Darker border color */
             border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter background for input fields */
+            color: #fff; /* Set text color to white */
         }
 
         .login-form input[type="submit"] {
@@ -58,3 +63,4 @@
     </div>
 </body>
 </html>
+{% endblock %}

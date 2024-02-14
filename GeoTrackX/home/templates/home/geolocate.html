@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/main_header.html" %}
+{% block content %}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime location tracker</title>
+
+    <!-- leaflet css  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            overflow-y: auto;   /* Enable vertical scrollbar */
+        }
+
+        #map {
+            width: 100%;
+            height: 80vh;
+        }
+
+        #locationInput {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #getDistanceButton {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #getDistanceButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<br>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center;">
+        <input type="text" id="locationInput" placeholder="Enter coordinates like '8°50′28″N 76°48′02″E'">
+        <button id="getDistanceButton" onclick="getDistance()">Get Distance</button>
+    </div>
+    <div id="map">
+
+    </div>
+
+    <!-- leaflet js  -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Map initialization
+        var map = L.map('map').setView([0, 0], 2); // Default to (0, 0) with zoom level 2
+
+        // OSM layer
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+        osm.addTo(map);
+
+        var watchID; // Variable to store the watch ID
+
+        function startLocationWatch() {
+            if (!navigator.geolocation) {
+                console.log("Your browser doesn't support geolocation feature!");
+            } else {
+                // Clear previous watch if exists
+                if (watchID) {
+                    navigator.geolocation.clearWatch(watchID);
+                }
+
+                // Request location access continuously
+                watchID = navigator.geolocation.watchPosition(getPosition, handleLocationError);
+            }
+        }
+
+        startLocationWatch(); // Start location watch initially
+
+        var marker, circle;
+
+        function getPosition(position) {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            var accuracy = position.coords.accuracy;
+
+            if (marker) {
+                map.removeLayer(marker);
+            }
+
+            if (circle) {
+                map.removeLayer(circle);
+            }
+
+            marker = L.marker([lat, long]);
+            circle = L.circle([lat, long], { radius: accuracy });
+
+            var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+
+            map.fitBounds(featureGroup.getBounds());
+
+            console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy);
+        }
+
+        function handleLocationError(error) {
+            console.error('Error getting user location:', error.message);
+        }
+
+        function convertDMSToDecimal(dms) {
+            var regex = /(-?\d+(?:\.\d+)?)°\s?(\d+(?:\.\d+)?)?′?\s?(\d+(?:\.\d+)?)?″?\s?([NSWE])?/i;
+            var matches = dms.match(regex);
+
+            if (!matches || matches.length < 2) {
+                return null;
+            }
+
+            var degrees = parseFloat(matches[1]);
+            var minutes = matches[2] ? parseFloat(matches[2]) : 0;
+            var seconds = matches[3] ? parseFloat(matches[3]) : 0;
+            var direction = matches[4];
+
+            var decimal = degrees + (minutes / 60) + (seconds / 3600);
+
+            if (direction === 'S' || direction === 'W') {
+                decimal = -decimal;
+            }
+
+            return decimal;
+        }
+
+        function getDistance() {
+            var input = document.getElementById("locationInput").value;
+            var destLat = convertDMSToDecimal(input.split(' ')[0]);
+            var destLong = convertDMSToDecimal(input.split(' ')[1]);
+
+            if (destLat === null || destLong === null) {
+                alert("Invalid coordinates entered");
+                return;
+            }
+
+            if (!marker) {
+                alert("Current location not available. Please try again.");
+                return;
+            }
+
+            marker.setLatLng([destLat, destLong]).addTo(map); // Set the marker at the entered location
+            map.setView([destLat, destLong], 12); // Set the view to the entered location
+
+            // Calculate distance manually
+            var R = 6371; // Radius of the Earth in kilometers
+            var dLat = (destLat - marker.getLatLng().lat) * (Math.PI / 180);
+            var dLon = (destLong - marker.getLatLng().lng) * (Math.PI / 180);
+            var a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(marker.getLatLng().lat * (Math.PI / 180)) * Math.cos(destLat * (Math.PI / 180)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = R * c;
+
+            document.getElementById('info').innerHTML = 'Distance: ' + distance.toFixed(2) + ' km';
+        }
+    </script>
+</body>
+
+</html>
+{% endblock %}

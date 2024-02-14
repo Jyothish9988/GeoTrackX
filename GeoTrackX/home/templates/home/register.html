@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% extends "home/sub_header.html" %}
+{% block content %}
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -23,11 +24,12 @@
         }
 
         .register-card {
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the transparency as needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Darken the background */
             border-radius: 10px;
             padding: 20px;
             width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjust shadow color for contrast */
+            color: #fff; /* Set text color to white */
         }
 
         .register-form {
@@ -38,8 +40,10 @@
         .register-form input {
             margin-bottom: 10px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #777; /* Darker border color */
             border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter background for input fields */
+            color: #fff; /* Set text color to white */
         }
 
         .register-form input[type="submit"] {
@@ -47,13 +51,14 @@
             color: #fff;
             cursor: pointer;
         }
+
     </style>
 </head>
 
 <body>
     <!-- Registration Card Section -->
     <div class="register-card">
-        <h2>Register</h2>
+{#        <h2 style="color: #fff;">Register</h2>#}
         <form method="POST" autocomplete="off" class="register-form">
             {% csrf_token %}
             <!-- Your form fields here -->
@@ -72,3 +77,4 @@
 </body>
 
 </html>
+{% endblock %}
