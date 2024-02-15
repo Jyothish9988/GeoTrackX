@@ -1,54 +1,74 @@
-<!DOCTYPE html>
-<html>
+# GeoTrackX - GPS Tracking Project
 
-<head>
-  <title>GeoTrackX - GPS Tracking Project</title>
-</head>
+🌍 **GeoTrackX** - A GPS Tracking Project on Django.
 
-<body>
+## Introduction
+GeoTrackX is an advanced GPS tracking project developed using Django. It provides a comprehensive platform with modules for administrators and users, featuring a powerful code compiler and runner.
 
-  <h1>GeoTrackX</h1>
+## Features
+- Admin and User Modules
+- Code Compiler and Runner
 
-  <p>🌐 <strong>GeoTrackX</strong> - A GPS Tracking Project on Django.</p>
+## Getting Started
 
-  <h2>Prerequisites</h2>
-  <p>Ensure you have the following installed:</p>
-  <ul>
-    <li>Python 3.x</li>
-    <li>Django</li>
-    <!-- Add other dependencies if any -->
-  </ul>
+### Prerequisites
+Before you begin, make sure you have the following installed:
+- Python
+- Django
+- [Other dependencies, if any]
 
+### Installation
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/GeoTrackX.git
+    ```
 
-  <h2>Installation</h2>
-  
-    <li><strong>Clone the repository:</strong></li>
-    <p><code>git clone https://github.com/yourusername/GeoTrackX.git</code></p>
+2. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-    <strong>Navigate to the project directory:</strong>
-    <p><code>cd GeoTrackX</code></p>
+3. **Configure the environment:**
+    ```bash
+    cp .env.example .env
+    ```
+    Update the database and other configuration settings in the `.env` file.
 
-    <strong>Install dependencies:</strong>
-    <code>pip install -r requirements.txt</code>
+4. **Run migrations and seed the database:**
+    ```bash
+    python manage.py migrate --seed
+    ```
 
-    <strong>Apply migrations:</strong>
-    <p><code>python manage.py migrate</code></p>
+5. **Start the development server:**
+    ```bash
+    python manage.py runserver
+    ```
 
-    <strong>Run the development server:</strong>
-    <p><code>python manage.py runserver</code></p>
+## Usage
+Visit the application in your browser and start exploring the features.
 
-    <strong>Open your web browser:</strong>
-    <p><code>Visit <a href="http://localhost:8000">http://localhost:8000</a> to explore GeoTrackX!</code></p>
-  
-  <h2>Need Help?</h2>
-  <p>If you encounter any issues during installation or have questions, feel free to reach out. We're here to help!</p>
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-  <h2>Connect with Us</h2>
-  <p>Stay updated on our journey! Follow us on LinkedIn and check out our latest updates: <a
-      href="https://www.linkedin.com/in/yourprofile/">Your LinkedIn Profile</a></p>
+## Modules
+1. Admin
+2. User
 
-  <p>🌍 Happy Navigating with GeoTrackX! ✨</p>
+## Images
+### Main
+![Main](Images/1.png)
 
-</body>
+### Course Page
+![Course Page](Images/2.png)
 
-</html>
+### Course Outline
+![Course Outline](Images/3.png)
+
+### Course Intro
+![Course Intro](Images/4.png)
+
+### Quiz
+![Quiz](Images/5.png)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
