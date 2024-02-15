@@ -21,25 +21,25 @@
 
 
   <h2>Installation</h2>
-  <ol>
+  
     <li><strong>Clone the repository:</strong></li>
     <p><code>git clone https://github.com/yourusername/GeoTrackX.git</code></p>
 
-    <li><strong>Navigate to the project directory:</strong></li>
+    <strong>Navigate to the project directory:</strong>
     <p><code>cd GeoTrackX</code></p>
 
-    <li><strong>Install dependencies:</strong></li>
-    <p><code>pip install -r requirements.txt</code></p>
+    <strong>Install dependencies:</strong>
+    <code>pip install -r requirements.txt</code>
 
-    <li><strong>Apply migrations:</strong></li>
+    <strong>Apply migrations:</strong>
     <p><code>python manage.py migrate</code></p>
 
-    <li><strong>Run the development server:</strong></li>
+    <strong>Run the development server:</strong>
     <p><code>python manage.py runserver</code></p>
 
-    <li><strong>Open your web browser:</strong></li>
+    <strong>Open your web browser:</strong>
     <p><code>Visit <a href="http://localhost:8000">http://localhost:8000</a> to explore GeoTrackX!</code></p>
-  </ol>
+  
   <h2>Need Help?</h2>
   <p>If you encounter any issues during installation or have questions, feel free to reach out. We're here to help!</p>
 
