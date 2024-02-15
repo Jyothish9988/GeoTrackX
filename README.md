@@ -7,10 +7,8 @@ GeoTrackX is an advanced GPS tracking project developed using Django. It provide
 
 ## Features
 - Admin and User Modules
-<video width="640" height="360" controls>
-  <source src="Sreenshots\intro.mp4" type="video/mp4">
-  
-</video>
+<img src="Screenshots/intro.gif" width="640" height="360">
+
 
 ## Getting Started
 
@@ -23,7 +21,7 @@ Before you begin, make sure you have the following installed:
 ### Installation
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/GeoTrackX.git
+    git clone https://github.com/Jyothish9988/GeoTrackX.git
     ```
 
 2. **Install dependencies:**
