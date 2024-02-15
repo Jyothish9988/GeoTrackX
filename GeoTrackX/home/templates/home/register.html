@@ -2,6 +2,7 @@
 <html lang="en">
 {% extends "home/sub_header.html" %}
 {% block content %}
+    {% load static %}
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-image: url('your-background-image.jpg'); /* Add your background image URL */
+            background-image: url('{% static 'home/assets/images/c1.jpeg' %}'); /* Add your background image URL */
             background-size: cover;
             background-position: center;
             height: 100vh;

@@ -9,5 +9,7 @@ urlpatterns = [
     path('geolocate/', views.geolocate, name='geolocate'),
     path('locateme/', views.locateme, name='locateme'),
     path('home/', views.homepage, name='home'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
 
 ]

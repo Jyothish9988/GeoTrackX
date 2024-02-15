@@ -2,6 +2,7 @@
 <html lang="en">
 {% extends "home/sub_header.html" %}
 {% block content %}
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-image: url('your-background-image.jpg'); /* Add your background image URL */
+            background-image: url('{% static 'home/assets/images/c1.jpeg' %}'); /* Add your background image URL */
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -53,14 +54,20 @@
 <body>
     <div class="login-card">
         <h2>Login</h2>
-        <form method="POST" autocomplete="off" class="login-form">
-            {% csrf_token %}
-            <!-- Your form fields here -->
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-        </form>
+            <form method="POST" autocomplete="off" class="login-form" action="{% url 'user_login' %}">
+                {% csrf_token %}
+
+                <label for="id_username">Username:</label>
+                <input type="text" id="id_username" name="username" placeholder="Username" required>
+
+                <label for="id_password">Password:</label>
+                <input type="password" id="id_password" name="password" placeholder="Password" required>
+
+                <input type="submit" value="Login">
+            </form>
+
     </div>
 </body>
 </html>
 {% endblock %}
+

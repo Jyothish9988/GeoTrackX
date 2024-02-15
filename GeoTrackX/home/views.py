@@ -60,3 +60,11 @@ def geolocate(request):
 @login_required(login_url='/user_login')
 def locateme(request):
     return render(request, 'home/locateme.html')
+
+def about(request):
+    return render(request, 'home/about.html')
+
+def contact(request):
+    return render(request, 'home/contact.html')
+
+

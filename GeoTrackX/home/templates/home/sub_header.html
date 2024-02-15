@@ -13,7 +13,7 @@ Author URL: http://w3layouts.com
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="keywords"
     content="Digebiz Responsive web template, Bootstrap Web Templates" />
-  <title>Digebiz Corporate Category Bootstrap Responsive Web Template | Home :: W3layouts</title>
+  <title>GeoTrackX</title>
   <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
     rel="stylesheet">
   <!-- Template CSS -->
@@ -27,13 +27,10 @@ Author URL: http://w3layouts.com
     <!-- //top header -->
     <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0 py-lg-0">
-        <h1><a class="navbar-brand" href="index.html">
-            Dige<span class="sub-logo">b</span>iz</span>
+        <h1><a class="navbar-brand" href="{% url 'home' %}">
+            Geo<span class="sub-logo">Track</span>X</span>
           </a></h1>
-        <!-- if logo is image enable this
-    <a class="navbar-brand" href="#index.html">
-        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-    </a> -->
+
         <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
           data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
           aria-label="Toggle navigation">
@@ -48,14 +45,12 @@ Author URL: http://w3layouts.com
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+              <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
 
+
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
               <li class="nav-item">
               <a class="nav-link" href="{% url 'register' %}">Register</a>

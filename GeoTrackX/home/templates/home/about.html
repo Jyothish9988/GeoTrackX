@@ -1,0 +1,43 @@
+{% extends "home/sub_header.html" %}
+{%block content %}
+
+{% load static %}
+
+  <div class="breadcrumb-bg w3l-inner-page-breadcrumb py-5">
+    <div class="container pt-lg-5 pt-md-3 p-lg-4 my-lg-3">
+      <ul class="breadcrumbs-custom-path pt-5 mt-3 text-center">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> About </li>
+      </ul>
+    </div>
+  </div>
+  <!--//breadcrumb-bg-->
+  <!-- //w3l-inner-page-breadcrumb-->
+  <section class="w3l-about-ab" id="about">
+    <div class="midd-w3 py-5">
+      <div class="container py-lg-5 py-md-4 py-2">
+        <div class="row">
+          <div class="col-lg-5 left-wthree-img">
+            <h6 class="title-subhny">About Us</h6>
+            <h3 class="title-w3l mb-4">One of the fastest growing agency</h3>
+          </div>
+          <div class="col-lg-7 pl-lg-5 align-self">
+            <p class="">Embark on a transformative journey into the realm of unparalleled navigation with our state-of-the-art Online GPS Tracking Platform. Seamlessly blending innovation and precision, immerse yourself in the assurance of optimal guidance throughout every adventure. Our advanced technological marvels deliver real-time accuracy, granting you the supreme authority to navigate your chosen paths with absolute confidence.
+
+Picture a world where your journeys unfold effortlessly, driven by the power of cutting-edge technology that guarantees precise and reliable tracking. As you explore, savor the liberating feeling of unfettered discovery, knowing that our GPS tracking solution stands as an unwavering pillar of dependability.
+
+Experience the freedom to chart your course, backed by the unmatched reliability of our platform. Trust in the fusion of groundbreaking features and seamless functionality, providing you with the ultimate control over your routes. Navigate with confidence, where the art of precision converges harmoniously with the tranquility of peace of mind. Your every journey, an odyssey guided by innovation, awaits.
+            </p>
+            <a href="{% url 'contact' %}" class="btn btn-style btn-primary mt-lg-5 mt-4">Contact Now<span
+                class="fa fa-long-arrow-right ml-3" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+{%endblock%}
