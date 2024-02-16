@@ -60,17 +60,18 @@
 
               </address>
             </div>
-            <div class="col-lg-7">
-              <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="text-right">
-                <div class="form-grid mb-3">
-                  <input type="text" name="w3lName" id="w3lName" placeholder="Name*" required="">
-                  <input type="email" name="w3lSender" id="w3lSender" placeholder="Email*" required="">
+                <div class="col-lg-7">
+                    <form action="{% url 'submit_contact' %}" method="post" class="text-right">
+                        {% csrf_token %}
+                        <div class="form-grid mb-3">
+                            <input type="text" name="w3lName" id="w3lName" placeholder="Name*" required="">
+                            <input type="email" name="w3lSender" id="w3lSender" placeholder="Email*" required="">
+                        </div>
+                        <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
+                        <textarea name="w3lMessage" id="w3lMessage" placeholder="Message"></textarea>
+                        <button type="submit" class="btn btn-primary btn-style mt-3">Submit Message <span class="fa fa-paper-plane ml-3" aria-hidden="true"></span></button>
+                    </form>
                 </div>
-                <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
-                <textarea name="w3lMessage" id="w3lMessage" placeholder="Message"></textarea>
-                <button type="submit" class="btn btn-primary btn-style mt-3">Submit Message <span class="fa fa-paper-plane ml-3" aria-hidden="true"></span></button>
-              </form>
-            </div>
 
           </div>
 
